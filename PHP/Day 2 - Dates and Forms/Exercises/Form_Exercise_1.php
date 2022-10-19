@@ -20,3 +20,5 @@
 	When the user validates the form: display a message in red if invalid, show in green if valid.
 
 */
+
+echo '<p style="color:red">not valid</p>';

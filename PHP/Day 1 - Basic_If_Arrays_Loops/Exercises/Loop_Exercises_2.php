@@ -13,6 +13,8 @@
 
 	*/
 
+	sort($array);
+	var_dump($array);
 
 /*
 	- Exercise 2 : 

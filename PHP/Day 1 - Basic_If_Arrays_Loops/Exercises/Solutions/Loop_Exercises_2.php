@@ -13,6 +13,24 @@
 
 	*/
 
+$array = array("Salad" => 1.03, "Tomato" => 2.3, "Oignon" => 1.85, "Red cabbage" => 0.85);
+
+// asort($array);
+// echo '<pre>';
+// var_dump($array);
+// echo '</pre>';
+
+krsort($array);
+// echo '<pre>';
+// var_dump($array);
+// echo '</pre>';
+
+$total = 0;
+foreach ($array as $value) {
+	$total += $value;
+}
+// echo "Total : $total";
+
 /*
 	- Exercise 2 : 
 
@@ -22,6 +40,27 @@
 		Do it by using a for loop.
 		Once it's done, try to do it also with the while loop.
 	*/
+$array = [];
+for ($i = 0; $i < 21; $i++) {
+	$array[] = $i;
+}
+
+echo '<pre>';
+var_dump($array);
+echo '</pre>';
+
+$array = [];
+$a = 0;
+while ($a <= 20) {
+	$array[] = $a;
+	$a++;
+}
+
+echo '<pre>';
+var_dump($array);
+echo '</pre>';
+
+
 
 /*
 	-Exercise 3 :
@@ -29,6 +68,15 @@
 		This array will contain the multiplication table of 2.
 		From 1 to 10.
 	*/
+
+$array = [];
+for ($i = 1; $i < 11; $i++) {
+	$array[$i] = $i * 2;
+}
+
+echo '<pre>';
+var_dump($array);
+echo '</pre>';
 
 /*
 	-Exercise 4 :
@@ -44,3 +92,19 @@
 		3. CHALLENGE (optional)
 		You can only use 2 variables ($array and $i doesn't count).
 	*/
+
+$array = [5, 20, 6, -6, 100];
+$posMax = 0;
+$posMin = 0;
+
+foreach ($array as $key => $value) {
+	if ($value > $array[$posMax])
+		$posMax = $key;
+
+	if ($value < $array[$posMin])
+		$posMin = $key;
+}
+
+echo 'Maximum is ' . $array[$posMax] . ', its position is : ' . $posMax . '<br>';
+
+echo 'Minimum is ' . $array[$posMin] . ', its position is : ' . $posMin . '<br>';

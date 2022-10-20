@@ -22,4 +22,5 @@
 				- The fields "Password" and "Confirmation" must be identical and have at least 8 characters
 
 			BONUS: Make the form values ​​reappear with each submission, in case of error.
+				
     */

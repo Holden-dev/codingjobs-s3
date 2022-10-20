@@ -17,6 +17,22 @@ The expected result is this:
 
 */
 
+function whichIsHigher($a, $b)
+{
+	if ($a > $b)
+		echo "First number is higher<br>";
+	else if ($a < $b)
+		echo "Second number is higher<br>";
+	else
+		echo "Numbers are identical !<br>";
+}
+
+whichIsHigher(5, 10);
+whichIsHigher(12, 7);
+
+
+
+
 echo '<hr>';
 echo '<p style="font-weight: 900"> EXERCISE 2 </p>';
 
@@ -31,6 +47,12 @@ Example :
     	> Displays <img src='skate.jpg'>
 
 */
+function htmlImage($src)
+{
+	echo "<img src='$src'>";
+}
+
+htmlImage('skate.jpg');
 
 
 echo '<hr>';
@@ -50,6 +72,23 @@ echo '<p style="font-weight: 900"> EXERCISE 3 </p>';
 	- return the sum
 
 */
+
+function expenses($myArray)
+{
+	$total = 0;
+	foreach ($myArray as $value) {
+		$total += $value;
+	}
+
+	return $total;
+}
+
+$array = array("Salad" => 1.03, "Tomato" => 2.3, "Oignon" => 1.85, "Red cabbage" => 0.85);
+echo expenses($array);
+
+$array2 = array("Salad" => 2, "Tomato" => 5);
+echo expenses($array2);
+
 
 echo '<hr>';
 echo '<p style="font-weight: 900"> EXERCISE 4 </p>';
@@ -72,7 +111,13 @@ Write a function that:
     - Call your function with a single number: 4
 */
 
+function multiply($a = 1, $b = 1)
+{
+	return $a * $b;
+}
 
+echo multiply(10, 2);
+echo multiply(4);
 
 
 echo '<hr>';
@@ -88,8 +133,23 @@ Example :
 "kayak"
 "xanax"
 "poop"
-
 */
+
+function isPalindrome($string)
+{
+	$length = strlen($string) - 1;
+
+	for ($i = 0; $i <= $length; $i++) {
+
+		if ($string[$i] != $string[$length - $i]) {
+			return false;
+		}
+	}
+
+	return true;
+}
+
+echo isPalindrome('kayak');
 
 echo '<hr>';
 echo '<p style="font-weight: 900"> EXERCISE 6 </p>';

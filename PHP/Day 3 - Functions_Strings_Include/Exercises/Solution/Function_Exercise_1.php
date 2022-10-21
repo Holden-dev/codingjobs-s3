@@ -139,7 +139,7 @@ function isPalindrome($string)
 {
 	$length = strlen($string) - 1;
 
-	for ($i = 0; $i <= $length; $i++) {
+	for ($i = 0; $i <= $length / 2; $i++) {
 
 		if ($string[$i] != $string[$length - $i]) {
 			return false;
@@ -162,6 +162,24 @@ A prime number is an integer greater than 1 that can only be divided by itself a
 
 */
 
+function isPrime($myNumber)
+{
+	// First, check if number is greater than 1
+	if ($myNumber <= 1)
+		return 'Number should be > 1<br>';
+
+	// Try to divide by every numbers
+	for ($i = 2; $i < $myNumber; $i++) {
+		// To check if a number is divisible by another one, use modulo
+		if ($myNumber % $i == 0)
+			return 'Not a prime number<br>';
+	}
+
+	// Return after loop : dont use else
+	return 'Its a prime<br>';
+}
+
+echo isPrime(12);
 
 
 echo '<hr>';
@@ -172,4 +190,40 @@ echo '<p style="font-weight: 900"> EXERCISE 7 </p>';
 	Write a PHP function that return the reverse(mirror) of an array.
 	You can use only one other variable (simple, no array).
 	You can only use count() or strlen() function.
+*/
+
+$myArray = [5, 7, 20, 8, 32, 99];
+var_dump(reverseArray($myArray));
+
+function reverseArray($array)
+{
+	$length = count($array) - 1;
+	for ($i = 0; $i < $length / 2; $i++) {
+		$temp = $array[$i];
+		$array[$i] = $array[$length - $i];
+		$array[$length - $i] = $temp;
+	}
+
+	return $array;
+}
+
+
+
+/* 
+This is what happens if you do it 'manually' : 
+
+$myArray = [5, 7, 20, 8, 32, 99];
+
+$temp = $array[0]; // 5
+$array[0] = $array[5]; // 99
+$array[5] = $temp; // 5
+
+$temp = $array[1]; // 7
+$array[1] = $array[4]; // 32
+$array[4] = $temp; // 7
+
+$temp = $array[2]; // 20
+$array[2] = $array[3]; // 8
+$array[3] = $temp; // 20
+
 */

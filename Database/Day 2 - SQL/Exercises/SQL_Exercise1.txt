@@ -1,0 +1,55 @@
+Part 1 :
+
+- Get all the information from each books
+
+- Get the title of each book
+
+- Get the title and publication date of each book
+
+Part 2 :
+
+- Retrieve the title of each book, sorted alphabetically
+
+- List all authors in alphabetical order and without duplicate
+SELECT DISTINCT
+
+Part 3:
+
+- Recover the book with id 5
+
+- Find books released between 2000 and 2010
+
+- Find books that did not come out between '2000' and '2010'
+
+Part 4:
+
+- Recover all books starting with "Lord of the ring"
+
+- Get all the books from the author "Tolkien" (you have to know the author id)
+
+- Get all the author's books that are not "Tolkien"
+
+
+Part 5:
+- Recover all books from newest to oldest
+
+- Count the number of books by each author
+
+Part 6
+- List only the first 5 books
+
+- List the last 4 books (from newest to oldest)
+
+Part 7:
+
+- Get the sum of all the book's price (total amount of all books)
+
+- Get the sum of books price PER author_id. 
+
+
+Part 8:
+- Update all books with author_id = 2.
+Those books all cost now 10.
+
+- Update all books with author_id = 5.
+Those books all cost now 5 more euro than previous price.

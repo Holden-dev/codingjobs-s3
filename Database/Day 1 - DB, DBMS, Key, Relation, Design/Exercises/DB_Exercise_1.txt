@@ -13,4 +13,4 @@ Part 1 - Modeling of the D.B. :
 - Identify all the attributes (for each table).
 - Identify the relationships between the different tables.
 - Identify the cardinalities of these relationships.
-- Create the relational diagram of the B.D.D.
+- Create the relational diagram of the D.B.

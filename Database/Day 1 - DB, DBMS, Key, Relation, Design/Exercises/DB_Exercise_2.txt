@@ -1,0 +1,64 @@
+Project 1 :
+
+I am a local artisan from a small town, I have a pizzeria.
+I want a website to have an internet presence and so display my menu and my products.
+Customers must be able to order.
+I sell several types of products: Pizza, Sandwich, Dessert and Drinks
+Pizzas, Sandwiches and Desserts are represented by a name, a list of ingredients and a price.
+Beverages are represented by a name and a price.
+The concern is that each type of product has a different taxes (VAT).
+For drinks, the VAT is 21% for alcohol, 19% for non-alcohol, for sandwiches and desserts 19% and for pizza 17%.
+
+
+Project 2 :
+
+I am director of an auto-mobile center.
+I want to get a simple application where I can list my park vehicle, with availability for each car.
+A car is represented by a name, a model, a manufacturer, a number of horses, diesel or gasoline and a color. Of course, we must also know if this car is currently available in one of our centers
+The car manufacturer is represented by the name of the company, the year of creation and an address (social seat).
+
+The problem is that I have 3 agencies: one in Metz, one in Luxembourg and one in Germany.
+Each agency has its own availability according to the car models.
+An agency is described by an address, a city.
+
+I must know, at any time, the complete catalog and know if this or that car is available in this or that agency.
+
+
+Project 3 :
+
+Hello ,we are a club sport (snowboard/skateboard).
+We are very active on social networks and post a lot of videos.
+We would like a site that allows us to highlight members and videos!
+
+It is therefore necessary to list all the members of the team.
+A member is represented by a name, a nickname, a photo, the size of the snowboard and goofie / regular.
+A video has a title, a description and a date.
+It should also be possible to know which rider is in which video.
+
+
+Project 4 :
+
+Hello, I opened my ephemeral clothes shop a year ago in Nancy.
+It works well for me and I would like to develop my business with a mobile website.
+I must be able to present my clothes on my site with photos and a description for each product (tshirt, caps ...).
+
+A product is represented by a name, a description, a category, a price and a photo.
+Attention, a product is unique and therefore we do not manage the stock. Once a product is sold, it is removed from the site.
+
+I have two agencies : Nancy and Luxembourg.
+I want to check where the product is available
+
+
+Project 5 : 
+
+Hello, we have just started a startup called 'fly oak'.
+We propose cultural visit (museum, other ...) in Augmented Reality.
+
+We will like a site to be present on the internet and present our services.
+It would be necessary to see the cultural places partners, can be on a map type google map.
+
+So for our project, we would like to have a list of cultural places that are available with VR.
+We have to see what kind of formula they propose
+There are 2 formulas: VR and AR.
+If they have their own helmets, they can use only the app.
+Otherwise they can rent a helmet, which they have to return at the end, and they have to pay extra.

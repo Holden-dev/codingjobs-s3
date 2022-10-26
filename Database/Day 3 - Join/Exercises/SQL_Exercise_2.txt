@@ -1,7 +1,7 @@
 Part 1 :
 	- Retrieve books that are under 50 years old (released less than 50 years ago).
 
-	- Retrieve all the authors from British nationality
+	- Retrieve all the authors that are Female (gender)
 
 Part 2:
 	- Get all the books from the author "JK Rowling"
@@ -31,12 +31,12 @@ Part 6:
 
 	- Get average price of all books by author
 
-	- Get the sum of the price of all books by nationality
+	- Get the sum of the price of all books by gender
 
 Part 7:
 	- Get the author who makes the highest number of sales.
 
-	- Retrieve nationalities that has more than 3 books
+	- Retrieve gender that has more than 3 books
 
 Part 8:
 	- All JK Rowling's books have made 20 more sells. Update these books.

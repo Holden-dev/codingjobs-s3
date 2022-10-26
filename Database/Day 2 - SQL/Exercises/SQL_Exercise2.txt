@@ -5,14 +5,34 @@ For this exercises, use union command (cf union.sql file or check this link : ht
 
 -- Queries :
 	- Retrieve all novels and all books in one query.
+	SELECT * FROM books
+	UNION
+	SELECT * FROM novels;
 
 	- Collect all novels and all books from/since 2018
-
-	- Collect all the novels and all the books with the author.	
+	SELECT * FROM books WHERE publication_date >= '2018/01/01'
+	UNION
+	SELECT * FROM novels WHERE publication_date >= '2018/01/01';
 
 	- Get the total price per author (books and novels combined).
 
+	SELECT table1.author_id, SUM(table1.price)
+	FROM (SELECT author_id, price
+	FROM books
+	UNION
+	SELECT author_id, price
+	FROM novels) table1
+	GROUP BY table1.author_id
+
 
 	- Get the total price for all books AND all novels (books and novels seperated).
+
+	SELECT 'books' as Origin, SUM(price) as Total
+	FROM books
+	UNION
+	SELECT 'novels' as Origin, SUM(price) as Total
+	FROM novels
+
+
 
 

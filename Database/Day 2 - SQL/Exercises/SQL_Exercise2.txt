@@ -19,7 +19,7 @@ For this exercises, use union command (cf union.sql file or check this link : ht
 	SELECT table1.author_id, SUM(table1.price)
 	FROM (SELECT author_id, price
 	FROM books
-	UNION
+	UNION ALL
 	SELECT author_id, price
 	FROM novels) table1
 	GROUP BY table1.author_id

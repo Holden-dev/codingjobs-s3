@@ -1,0 +1,3 @@
+French : https://sql.sh/cours/jointures
+English : https://appdividend.com/2019/06/13/sql-joins-tutorial-for-beginners-sql-joins-example/
+

@@ -1,0 +1,16 @@
+Part 1:
+	- For each book, Retrieve its title and the name of the author
+
+	- For each book, get all the information about it and the name of the author
+
+	- Get the title of each book and the name of the author, sorted alphabetically on the title of the book.
+
+	- Same but sorted on the author's name.
+
+Part 2:
+	- Collect the number of books by author (with the name of the author)
+
+Part 3:
+	- Get the sum of the price of all the books for one specific author (you choose which one)
+
+	- Get the sum of price of all books by author

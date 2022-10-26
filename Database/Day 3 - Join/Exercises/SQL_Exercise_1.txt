@@ -1,14 +1,33 @@
 Part 1:
 	- For each book, Retrieve its title and the name of the author
+	SELECT b.title, a.name
+	FROM books b 
+	INNER JOIN authors a ON b.author_id = a.id
 
 	- For each book, get all the information about it and the name of the author
+	SELECT b.*, a.name
+	FROM books b 
+	INNER JOIN authors a ON b.author_id = a.id
 
 	- Get the title of each book and the name of the author, sorted alphabetically on the title of the book.
+	SELECT title, name
+	FROM books b 
+	INNER JOIN authors a ON b.author_id = a.id
+	ORDER BY title
+
 
 	- Same but sorted on the author's name.
+	SELECT title, name
+	FROM books b 
+	INNER JOIN authors a ON b.author_id = a.id
+	ORDER BY name
 
 Part 2:
 	- Collect the number of books by author (with the name of the author)
+	SELECT name, COUNT(*) as total
+	FROM books b 
+	INNER JOIN authors a ON b.author_id = a.id
+	GROUP BY a.id
 
 Part 3:
 	- Get the sum of the price of all the books for one specific author (you choose which one)

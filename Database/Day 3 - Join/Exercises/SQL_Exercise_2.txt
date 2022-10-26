@@ -1,0 +1,43 @@
+Part 1 :
+	- Retrieve books that are under 50 years old (released less than 50 years ago).
+
+	- Retrieve all the authors from British nationality
+
+Part 2:
+	- Get all the books from the author "JK Rowling"
+
+	- Get all the author's books that are not "JK Rowling"
+
+	- Retrieve all books whose author has the letter 's' in his name or first name.
+
+
+Part 3:
+	- Retrieve the chepeast book with author's name
+
+	- Retrieve the most expansive book with author's name
+
+	- Retrieve the 3 most expansive books with author's name
+
+
+Part 4:
+	- Get all the books from the youngest to the oldest author
+
+	- Retrieve the number of books by author (with the name of the author)
+
+Part 6:
+	- Get the sum of price for all the books from the author 'JK Rowling'
+
+	- Get the sum of price for all books by author
+
+	- Get average price of all books by author
+
+	- Get the sum of the price of all books by nationality
+
+Part 7:
+	- Get the author who makes the highest number of sales.
+
+	- Retrieve nationalities that has more than 3 books
+
+Part 8:
+	- All JK Rowling's books have made 20 more sells. Update these books.
+		

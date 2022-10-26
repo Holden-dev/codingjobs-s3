@@ -1,0 +1,18 @@
+-- Explanation :
+
+Now, there is a 'novels' table that has the same fields as the 'books' table.
+For this exercises, use union command (cf union.sql file or check this link : https://www.w3schools.com/sql/sql_union.asp).
+
+-- Queries :
+	- Retrieve all novels and all books in one query.
+
+	- Collect all novels and all books from/since 2018
+
+	- Collect all the novels and all the books with the author.	
+
+	- Get the total price per author (books and novels combined).
+
+
+	- Get the total price for all books AND all novels (books and novels seperated).
+
+

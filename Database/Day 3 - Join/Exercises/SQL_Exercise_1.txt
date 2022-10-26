@@ -31,5 +31,13 @@ Part 2:
 
 Part 3:
 	- Get the sum of the price of all the books for one specific author (you choose which one)
+	SELECT name, SUM(price) as total
+	FROM books b 
+	INNER JOIN authors a ON b.author_id = a.id
+	WHERE a.name = "%Tolkien%"
 
 	- Get the sum of price of all books by author
+	SELECT name, SUM(price) as total
+	FROM books b 
+	INNER JOIN authors a ON b.author_id = a.id
+	GROUP BY a.id

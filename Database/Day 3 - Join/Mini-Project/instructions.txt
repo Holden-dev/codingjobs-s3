@@ -1,0 +1,17 @@
+We want to develop a dynamic web application of the type 'Spotify'.
+
+Here is all the information and all the needs necessary for the development of the
+database.
+
+Structure:
+
+A music is designated by a title, a release date, an artist and a category.
+An artist is designated by name, biography, year of birth and gender.
+Example of possible music category: Pop / Rock / Rap / Funk….
+A user is designated by a name, a first name, an email and a password.
+A playlist is designated by a title, a creation date, a user (the one who owns
+the playlist) and all of the music in this playlist.
+
+Create the DB design !
+
+

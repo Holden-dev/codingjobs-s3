@@ -1,6 +1,7 @@
 <?php
 
-$conn = mysqli_connect('localhost', 'root', '', 'spotify');
+require_once 'database.php';
+
 $query = "SELECT *, COUNT(*) as NbSongs
 FROM artists a
 INNER JOIN songs s ON s.artist_id = a.id

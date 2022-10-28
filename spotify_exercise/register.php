@@ -9,14 +9,18 @@
 </head>
 
 <body>
+    <?php require_once 'nav.html'; ?>
+
     <h1>Register</h1>
 
     <?php
 
     if (isset($_POST['registerBtn'])) {
-        $firstName = $_POST['first_name'];
-        $lastName = $_POST['last_name'];
-        $email = $_POST['email'];
+        $firstName = strip_tags(trim($_POST['first_name']));
+        $lastName = strip_tags(trim($_POST['last_name']));
+        $email = trim($_POST['email']);
+        $sanitizedEmail = filter_var($email, FILTER_SANITIZE_EMAIL);
+
         $password = $_POST['password'];
         $cPassword = $_POST['cPassword'];
 
@@ -27,10 +31,10 @@
             $errors = true;
         }
 
-        if (empty($email)) {
+        if (empty($sanitizedEmail)) {
             echo "Email is mandatory<br>";
             $errors = true;
-        } else if (!strpos($email, '@')) {
+        } else if (!filter_var($sanitizedEmail, FILTER_VALIDATE_EMAIL)) {
             echo "Email is not valid<br>";
             $errors = true;
         }
@@ -43,12 +47,13 @@
             $errors = true;
         }
 
-
         // Only if no errors 
         if (!$errors) {
+            $hashPassword = password_hash($password, PASSWORD_DEFAULT);
+
             $conn = mysqli_connect('localhost', 'root', '', 'spotify');
             $query = "INSERT INTO users(first_name, last_name, email, password)
-            VALUES('$firstName', '$lastName', '$email', '$password')";
+            VALUES('$firstName', '$lastName', '$email', '$hashPassword')";
             $result = mysqli_query($conn, $query);
             mysqli_close($conn);
 

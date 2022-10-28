@@ -1,7 +1,7 @@
 <?php
 
 $conn = mysqli_connect('localhost', 'root', '', 'spotify');
-$query = "SELECT name, poster
+$query = "SELECT id, name, poster
 FROM artists";
 $result = mysqli_query($conn, $query);
 $artists = mysqli_fetch_all($result, MYSQLI_ASSOC);
@@ -36,6 +36,7 @@ mysqli_close($conn);
             <img src="./assets/img/<?= $artist['poster']; ?>" width="200px">
         </p>
 
+        <a href="./artist-details.php?id=<?= $artist['id']; ?>">Detail page</a>
         <hr>
 
     <?php endforeach; ?>

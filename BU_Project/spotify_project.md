@@ -18,7 +18,7 @@
     Create the DB matching those informations.
 
 * Part 2 :
-    - Movies list page ('/ artists')
+    - Movies list page ('/ movies')
     This page will list all movies with poster and title.
     Display also description: If it is more than 30 characters, just display first 30 characters follow by '...'
 

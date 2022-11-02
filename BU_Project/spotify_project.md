@@ -10,7 +10,7 @@
 
 * Part 1 :
     
-    MOVIES(id, title, description, release_date, director_id)
+    MOVIES(id, title, description, poster, release_date, director_id)
     DIRECTORS(id, first name, last name, gender, nationality, birth_date)
     USERS(id, name, email, password)
     WATCHLIST(movie_id, user_id)

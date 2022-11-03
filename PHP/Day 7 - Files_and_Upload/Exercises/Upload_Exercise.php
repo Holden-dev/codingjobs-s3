@@ -2,5 +2,14 @@
 
 /*
 
-- Part 1 :
-    
+Let's continue movie project
+
+- Part 1 : 
+    Edit 'users' table and add one column : picture
+
+- Part 2 :
+    Edit 'register.php', to allow the user upload a picture.
+
+- Part 3 :
+    Display the profile picture on the account page.
+*/

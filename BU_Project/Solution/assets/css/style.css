@@ -1,0 +1,41 @@
+#movies-search {
+    background-color: rgba(0, 0, 0, 0.5);
+    text-align: center;
+    padding: 20px 0px;
+}
+
+#movies-filter {
+    text-align: center;
+    margin: 0 auto;
+    padding: 20px 0px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+#movies-filter form {
+    margin-bottom: 10px;
+}
+
+.movie-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px 0px;
+}
+
+.movie-card:nth-child(2n) {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.movie-card img {
+    width: 20%;
+    margin-bottom: 15px;
+}
+
+.movie-card p {
+    margin-bottom: 10px;
+}
+
+#movie-details .movie-card p {
+    padding: 0 30px;
+}

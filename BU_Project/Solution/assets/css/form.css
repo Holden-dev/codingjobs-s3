@@ -1,0 +1,13 @@
+form {
+    margin: 20px;
+}
+
+input,
+textarea,
+select {
+    margin-bottom: 10px;
+}
+
+input[type='submit'] {
+    padding: 5px 10px;
+}

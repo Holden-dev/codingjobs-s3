@@ -1,0 +1,56 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+/* Remove built-in style */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/*
+  Avoid text overflows
+*/
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+h1 {
+    margin-top: 80px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.error {
+    display: block;
+    color: red;
+    margin-bottom: 5px;
+}
+
+.success {
+    color: green;
+}
+
+.message {
+    font-weight: 600;
+    margin: 10px 0px;
+    text-align: center;
+}
+
+.container {
+    padding: 0px 30px;
+}

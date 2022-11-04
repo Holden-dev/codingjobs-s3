@@ -45,16 +45,42 @@ if (isset($_POST['registerBtn'])) {
     else
         $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-    // Register only if 0 errors 
+    // Check Picture
+    if ($_FILES['picture']['error'] != UPLOAD_ERR_OK and $_FILES['picture']['error'] != UPLOAD_ERR_NO_FILE) {
+        $errors['picture'] = 'Problem during upload. Try again.';
+    } else if ($_FILES['picture']['error'] != UPLOAD_ERR_NO_FILE) {
+        // Make sure its an image
+        $extension = array_search($_FILES['picture']['type'], array(
+            'jpg' => 'image/jpeg',
+            'png' => 'image/png',
+            'gif' => 'image/gif'
+        ));
+
+        if (!$extension)
+            $errors['picture'] = 'Profile picture must be an image (jpg, png or gif)!';
+    }
+
+
+    // Upload file + Register only if 0 errors 
     if (empty($errors)) {
 
-        $query = "INSERT INTO users(name, email, password)
-        VALUES('$name', '$email', '$password')";
+        $fileName = '';
+        if ($_FILES['picture']['error'] == UPLOAD_ERR_NO_FILE)
+            $fileName = "default.png";
+        else
+            $fileName = "$name.$extension";
+
+        $filePath = "assets/img/pictures/$fileName";
+
+        move_uploaded_file($_FILES['picture']['tmp_name'], $filePath);
+
+        $query = "INSERT INTO users(name, picture, email, password)
+                    VALUES('$name', '$fileName', '$email', '$password')";
         $result = mysqli_query($conn, $query);
 
         if ($result)
             $msg = "<span class='success'>Successfully registered</span><br>
-        <a href='./login.php'>Try to login !</a>";
+                    <a href='./login.php'>Try to login !</a>";
         else
             $msg = "<span class='error'>Problem registering</span>";
     }
@@ -78,14 +104,14 @@ if (isset($_POST['registerBtn'])) {
 </head>
 
 <body>
-    <?php require_once 'nav.php'; ?>
+    <!-- <?php require_once 'nav.php'; ?> -->
 
     <h1>Register</h1>
 
     <p class="message"><?= $msg; ?></p>
 
     <p style="text-align: center;">Use the form to insert a new movie inside the DB</p>
-    <form method="POST">
+    <form enctype="multipart/form-data" method="POST">
         <div>
             <span class="error"><?= (isset($errors['name'])) ? $errors['name'] : '' ?></span>
             <label for="name">Name : </label>
@@ -107,6 +133,12 @@ if (isset($_POST['registerBtn'])) {
         <div>
             <label for="cPassword">Confirm password : </label>
             <input type="text" name="cPassword" id="cPassword">
+        </div>
+
+        <div>
+            <span class="error"><?= (isset($errors['picture'])) ? $errors['picture'] : '' ?></span>
+            <label for="picture">Choose a profile picture : </label>
+            <input type="file" name="picture" id="picture">
         </div>
 
         <input type="submit" name="registerBtn" value="Insert">

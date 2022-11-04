@@ -8,7 +8,7 @@ if (!isset($_SESSION['email']))
 
 // Retrieve watchlist content
 require_once 'database.php';
-$result = mysqli_query($conn, "SELECT movies.* 
+$result = mysqli_query($conn, "SELECT movies.*
 FROM users 
 INNER JOIN watchlist ON watchlist.user_id = users.id 
 INNER JOIN movies ON watchlist.movie_id = movies.id 
@@ -34,6 +34,8 @@ $watchlist = mysqli_fetch_all($result, MYSQLI_ASSOC);
     <?php require_once 'nav.php'; ?>
 
     <h1>Account page</h1>
+
+    <img width="100px" src="assets/img/pictures/<?= $_SESSION['picture'] ?>" alt="User picture">
 
     <p>
         <strong>Name : </strong>

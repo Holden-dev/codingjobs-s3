@@ -34,6 +34,7 @@ if (isset($_POST['loginBtn'])) {
             $_SESSION['email'] = $email;
             $_SESSION['name'] = $user['name'];
             $_SESSION['id'] = $user['id'];
+            $_SESSION['picture'] = $user['picture'];
             $msg = "<span class='success'>Successfully Loggued in</span><br>
             <a href='./account.php'>Check your account page</a>";
         } else

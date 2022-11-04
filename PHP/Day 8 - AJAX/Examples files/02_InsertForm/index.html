@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX Test</title>
+</head>
+
+<body>
+    <div id="result"></div>
+
+    <form method="post">
+        <input type="text" name="name" placeholder="Name"><br>
+        <input type="text" name="email" placeholder="Email"><br>
+        <!-- Using AJAX, the button name will not be send -->
+        <input type="submit" name="submitBtn" value="Click here">
+    </form>
+
+    <script>
+        document.querySelector("form").addEventListener('submit', function (event) {
+            // Prevent the page to 'refresh'
+            event.preventDefault();
+            // let form = document.getElementById('form');
+            let form = this;
+
+            fetch('insert.php', {
+                method: 'post',
+                body: new FormData(form)
+            }).then(res => res.text())
+                .then(function (result) {
+                    // Once AJAX call is done
+                    console.log(result);
+                    document.getElementById('result').innerHTML = result;
+                });
+        });
+    </script>
+</body>
+
+</html>

@@ -20,7 +20,6 @@
 
     <form id="movies-search" method="POST">
         <input type="text" name="searchBox" placeholder="Type title of a movie...">
-        <input type="submit" name="searchBtn" value="Search">
     </form>
 
     <div id="movies-filter">
@@ -51,13 +50,27 @@
     </div>
 
     <script>
+        // Called when page is loaded
         fetch('get-movies.php', {
                 method: 'get'
             }).then(res => res.text())
             .then(function(result) {
                 document.getElementById('movies-list').innerHTML = result;
-                console.log(result);
             });
+
+        // Called when user search
+        document.querySelector("input[name='searchBox']").addEventListener('input', function(event) {
+            let data = new FormData();
+            data.append("search", this.value);
+
+            fetch('get-movies.php', {
+                    method: 'post',
+                    body: data
+                }).then(res => res.text())
+                .then(function(result) {
+                    document.getElementById('movies-list').innerHTML = result;
+                });
+        });
     </script>
 </body>
 

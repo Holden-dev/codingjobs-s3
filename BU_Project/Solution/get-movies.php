@@ -5,6 +5,11 @@ session_start();
 // Handle query
 require_once 'database.php';
 $query = "SELECT * FROM movies";
+
+// Check if user search
+if (isset($_POST['search']))
+    $query .= " WHERE title LIKE '%" . $_POST['search'] . "%'";
+
 $result = mysqli_query($conn, $query);
 $movies = mysqli_fetch_all($result, MYSQLI_ASSOC);
 ?>

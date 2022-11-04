@@ -6,3 +6,6 @@ if (empty($_POST['name']))
 
 if (empty($_POST['email']))
     echo 'Email is mandatory!';
+
+
+var_dump($_POST);

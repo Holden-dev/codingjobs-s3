@@ -1,32 +1,4 @@
-<?php
-
-session_start();
-
-// Message placeholder
-$msg = '';
-
-// Handle query
-require_once 'database.php';
-$query = "SELECT * FROM movies";
-
-// Check if search
-if (isset($_POST['searchBtn'])) {
-    $query .= " WHERE title LIKE '%" . $_POST['searchBox'] . "%'";
-    $msg = "Searching for : " . $_POST['searchBox'];
-}
-
-// Sort by title OR date
-if (isset($_GET['sortBtn'])) {
-    if (isset($_GET['filter_title']))
-        $query .= " ORDER BY title " . $_GET['filter_title'];
-    else
-        $query .= " ORDER BY release_date " . $_GET['filter_date'];
-}
-
-$result = mysqli_query($conn, $query);
-$movies = mysqli_fetch_all($result, MYSQLI_ASSOC);
-?>
-
+<?php session_start(); ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -42,7 +14,8 @@ $movies = mysqli_fetch_all($result, MYSQLI_ASSOC);
 </head>
 
 <body>
-    <?php require_once 'nav.php'; ?>
+    <?php require_once 'nav.php' ?>
+
     <h1>Movies list</h1>
 
     <form id="movies-search" method="POST">
@@ -74,27 +47,18 @@ $movies = mysqli_fetch_all($result, MYSQLI_ASSOC);
         </form>
     </div>
 
-    <p class="message"><?= $msg; ?></p>
-
     <div id="movies-list">
-        <?php foreach ($movies as $movie) : ?>
-            <div class="movie-card">
-                <img src="./assets/img/posters/<?= $movie['poster']; ?>" alt="">
-
-                <p>
-                    <a href="./movie-details.php?id=<?= $movie['id']; ?>"><?= $movie['title']; ?></a>
-
-                    (<?= substr($movie['release_date'], 0, 4) ?>)
-                </p>
-
-                <p><?= strlen($movie['description']) > 30 ? substr($movie['description'], 0, 30) . '...' : $movie['description'] ?></p>
-
-                <?php if (isset($_SESSION['email'])) : ?>
-                    <a href="./insert-movie-watchlist.php?id=<?= $movie['id']; ?>">Add to my watchlist</a>
-                <?php endif; ?>
-            </div>
-        <?php endforeach; ?>
     </div>
+
+    <script>
+        fetch('get-movies.php', {
+                method: 'get'
+            }).then(res => res.text())
+            .then(function(result) {
+                document.getElementById('movies-list').innerHTML = result;
+                console.log(result);
+            });
+    </script>
 </body>
 
 </html>

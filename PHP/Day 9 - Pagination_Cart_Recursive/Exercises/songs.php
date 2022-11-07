@@ -17,6 +17,10 @@ LIMIT $start, $howManyPerPage";
 $result = mysqli_query($conn, $query);
 $songs = mysqli_fetch_all($result, MYSQLI_ASSOC);
 mysqli_close($conn);
+$currentPage = $_GET['page'];
+$previous = $currentPage - 1;
+$next = $currentPage + 1;
+
 
 ?>
 
@@ -31,6 +35,7 @@ mysqli_close($conn);
 </head>
 
 <body>
+
     <?php require_once 'nav.html'; ?>
 
     <h1>Songs List</h1>
@@ -50,7 +55,8 @@ mysqli_close($conn);
         <hr>
 
     <?php endforeach; ?>
-
+    <a href="songs.php?page=<?= $previous ?>">Previous</a>
+    <a href="songs.php?page=<?= $next ?>">Next</a>
 </body>
 
 </html>

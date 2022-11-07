@@ -10,13 +10,25 @@ $howManyPerPage = 2;
 $start = $howManyPerPage * ($nbPage - 1);
 
 $conn = mysqli_connect('localhost', 'root', '', 'spotify');
+
+// Retrieve songs
 $query = "SELECT title, type
 FROM songs s
 INNER JOIN categories c ON s.categ_id = c.id
 LIMIT $start, $howManyPerPage";
 $result = mysqli_query($conn, $query);
 $songs = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+// Get the total number of pages
+$query = "SELECT COUNT(*) as nbSongs FROM songs";
+$result = mysqli_query($conn, $query);
+$queryResult = mysqli_fetch_assoc($result);
+$totalPages = $queryResult['nbSongs'] / $howManyPerPage;
+
 mysqli_close($conn);
+
+$previous = $nbPage - 1;
+$next = $nbPage + 1;
 
 ?>
 
@@ -31,6 +43,7 @@ mysqli_close($conn);
 </head>
 
 <body>
+
     <?php require_once 'nav.html'; ?>
 
     <h1>Songs List</h1>
@@ -51,6 +64,13 @@ mysqli_close($conn);
 
     <?php endforeach; ?>
 
+    <?php if ($nbPage > 1) : ?>
+        <a href="songs.php?page=<?= $previous ?>">Previous</a>
+    <?php endif; ?>
+
+    <?php if ($nbPage < $totalPages) : ?>
+        <a href="songs.php?page=<?= $next ?>">Next</a>
+    <?php endif; ?>
 </body>
 
 </html>

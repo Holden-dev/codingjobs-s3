@@ -1,5 +1,14 @@
 <?php
 
+// Cart must be an array
+$_SESSION['cart'] = array();
+
+// Example : 
+$_SESSION['cart'] = [
+    ['title' => 'Harry potter', 'price' => 12],
+    ['title' => 'LOTR', 'price' => 15],
+];
+
 /*
 
     - Step 1 : 

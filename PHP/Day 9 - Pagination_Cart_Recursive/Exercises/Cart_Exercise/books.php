@@ -1,5 +1,35 @@
 <?php
 
+session_start();
+// session_destroy();
+$msg = '';
+
+// Add to cart
+if (isset($_POST['addToCart'])) {
+    if (!empty($_POST['title']) && !empty($_POST['price'])) {
+
+        // Retrieve id in a variable
+        $bookId = $_POST['id'];
+
+        // Prepare the book to be added to the Cart
+        $bookToAdd = [
+            'title' => $_POST['title'],
+            'price' => $_POST['price'],
+            'qty' => 1
+        ];
+
+        // Check if the book is already in the cart
+        if (isset($_SESSION['cart'][$bookId])) {
+            // If yes, edit the quantity (+1) in the cart
+            $_SESSION['cart'][$bookId]['qty'] += 1;
+        } else {
+            // If not, push the book in the cart
+            $_SESSION['cart'][$bookId] = $bookToAdd;
+        }
+
+        $msg = 'Added to cart!';
+    }
+}
 
 $nbPage = 1;
 
@@ -12,7 +42,7 @@ $start = $howManyPerPage * ($nbPage - 1);
 $conn = mysqli_connect('localhost', 'root', '', 'book_shop');
 
 // Retrieve books
-$query = "SELECT title, price
+$query = "SELECT id, title, price
 FROM books
 LIMIT $start, $howManyPerPage";
 $result = mysqli_query($conn, $query);
@@ -47,6 +77,8 @@ $next = $nbPage + 1;
 
     <h1>Books List</h1>
 
+    <?= $msg; ?>
+
     <?php foreach ($books as $book) : ?>
 
         <p>
@@ -58,6 +90,13 @@ $next = $nbPage + 1;
             <strong>Price : </strong>
             <?= $book['price']; ?>
         </p>
+
+        <form method="post">
+            <input type="hidden" name="id" value="<?= $book['id']; ?>">
+            <input type="hidden" name="title" value="<?= $book['title']; ?>">
+            <input type="hidden" name="price" value="<?= $book['price']; ?>">
+            <input type="submit" name="addToCart" value="Add to cart">
+        </form>
 
         <hr>
 

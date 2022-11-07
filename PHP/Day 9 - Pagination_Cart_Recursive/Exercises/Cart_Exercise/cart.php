@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,7 +13,14 @@
     <?php require_once 'nav.php'; ?>
 
     <h1>Cart</h1>
-    <h2>To-do</h2>
+
+    <?php foreach ($_SESSION['cart'] as $bookId => $book) : ?>
+        <p>Title : <?= $book['title'] ?> / Price : <?= $book['price'] ?> € / Qty : <?= $book['qty'] ?></p>
+
+        <a href="./remove-cart.php?id=<?= $bookId  ?>">Remove from cart</a>
+    <?php endforeach; ?>
+
+    <p>Total : <?= $totalPrice; ?> €</p>
 </body>
 
 </html>

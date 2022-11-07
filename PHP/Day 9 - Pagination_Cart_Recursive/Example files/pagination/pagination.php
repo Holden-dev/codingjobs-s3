@@ -36,4 +36,18 @@ echo "Im on the page number : $nbPage";
         SELECT * FROM songs LIMIT X, 3
 
         You just have to figure out the X value.
+
+        --- Links (navigate throught the pages)
+
+        Step 1. Create two links/buttons 'previous' / 'next'.
+        Previous : currentpage - 1
+        Next : currentpage + 1
+
+        Step 2. 
+        Make sure that on the first page, 'previous' is disable.
+        Make sure that on the last page, 'next' is disable.
+
+        To do that, you have to count how many songs in total.
+        Divide that number by the number of songs per page.
+
 */

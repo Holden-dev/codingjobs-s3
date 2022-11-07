@@ -31,7 +31,8 @@ $watchlist = mysqli_fetch_all($result, MYSQLI_ASSOC);
 </head>
 
 <body class="container">
-    <?php require_once 'nav.php'; ?>
+    <nav id="main-navbar">
+    </nav>
 
     <h1>Account page</h1>
 
@@ -59,6 +60,16 @@ $watchlist = mysqli_fetch_all($result, MYSQLI_ASSOC);
         <?php endforeach; ?>
 
     </div>
+
+    <script>
+        // Include navbar
+        fetch('nav.php', {
+                method: 'get',
+            }).then(res => res.text())
+            .then(function(result) {
+                document.getElementById('main-navbar').innerHTML = result;
+            });
+    </script>
 </body>
 
 </html>

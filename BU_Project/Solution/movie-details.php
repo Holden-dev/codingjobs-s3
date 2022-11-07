@@ -1,7 +1,5 @@
 <?php
 
-session_start();
-
 // Check for id in the URL
 if (!isset($_GET['id'])) {
     die('You should not access this page');
@@ -31,7 +29,8 @@ $movie = mysqli_fetch_assoc($result);
 </head>
 
 <body>
-    <?php require_once 'nav.php'; ?>
+    <nav id="main-navbar">
+    </nav>
 
     <h1><?= $movie['title']; ?></h1>
 
@@ -50,6 +49,16 @@ $movie = mysqli_fetch_assoc($result);
             </p>
         </div>
     </div>
+
+    <script>
+        // Include navbar
+        fetch('nav.php', {
+                method: 'get',
+            }).then(res => res.text())
+            .then(function(result) {
+                document.getElementById('main-navbar').innerHTML = result;
+            });
+    </script>
 </body>
 
 </html>

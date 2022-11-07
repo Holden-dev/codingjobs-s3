@@ -1,5 +1,3 @@
-<?php session_start(); ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,7 +12,8 @@
 </head>
 
 <body>
-    <?php require_once 'nav.php' ?>
+    <nav id="main-navbar">
+    </nav>
 
     <h1>Movies list</h1>
 
@@ -50,6 +49,14 @@
     </div>
 
     <script>
+        // Include navbar
+        fetch('nav.php', {
+                method: 'get',
+            }).then(res => res.text())
+            .then(function(result) {
+                document.getElementById('main-navbar').innerHTML = result;
+            });
+
         // Called when page is loaded
         fetch('get-movies.php', {
                 method: 'get'

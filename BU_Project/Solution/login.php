@@ -57,7 +57,8 @@ if (isset($_POST['loginBtn'])) {
 </head>
 
 <body>
-    <?php require_once 'nav.php'; ?>
+    <nav id="main-navbar">
+    </nav>
 
     <h1>Login</h1>
 
@@ -79,6 +80,16 @@ if (isset($_POST['loginBtn'])) {
 
         <input type="submit" name="loginBtn" value="Insert">
     </form>
+
+    <script>
+        // Include navbar
+        fetch('nav.php', {
+                method: 'get',
+            }).then(res => res.text())
+            .then(function(result) {
+                document.getElementById('main-navbar').innerHTML = result;
+            });
+    </script>
 </body>
 
 </html>

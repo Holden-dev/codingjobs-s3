@@ -9,21 +9,20 @@ if (isset($_GET['page']))
 $howManyPerPage = 2;
 $start = $howManyPerPage * ($nbPage - 1);
 
-$conn = mysqli_connect('localhost', 'root', '', 'spotify');
+$conn = mysqli_connect('localhost', 'root', '', 'book_shop');
 
-// Retrieve songs
-$query = "SELECT title, type
-FROM songs s
-INNER JOIN categories c ON s.categ_id = c.id
+// Retrieve books
+$query = "SELECT title, price
+FROM books
 LIMIT $start, $howManyPerPage";
 $result = mysqli_query($conn, $query);
-$songs = mysqli_fetch_all($result, MYSQLI_ASSOC);
+$books = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 // Get the total number of pages
-$query = "SELECT COUNT(*) as nbSongs FROM songs";
+$query = "SELECT COUNT(*) as nbBooks FROM books";
 $result = mysqli_query($conn, $query);
 $queryResult = mysqli_fetch_assoc($result);
-$totalPages = $queryResult['nbSongs'] / $howManyPerPage;
+$totalPages = $queryResult['nbBooks'] / $howManyPerPage;
 
 mysqli_close($conn);
 
@@ -44,20 +43,20 @@ $next = $nbPage + 1;
 
 <body>
 
-    <?php require_once 'nav.html'; ?>
+    <?php require_once 'nav.php'; ?>
 
-    <h1>Songs List</h1>
+    <h1>Books List</h1>
 
-    <?php foreach ($songs as $song) : ?>
+    <?php foreach ($books as $book) : ?>
 
         <p>
             <strong>Title : </strong>
-            <?= $song['title']; ?>
+            <?= $book['title']; ?>
         </p>
 
         <p>
-            <strong>Type : </strong>
-            <?= $song['type']; ?>
+            <strong>Price : </strong>
+            <?= $book['price']; ?>
         </p>
 
         <hr>
@@ -65,11 +64,11 @@ $next = $nbPage + 1;
     <?php endforeach; ?>
 
     <?php if ($nbPage > 1) : ?>
-        <a href="songs.php?page=<?= $previous ?>">Previous</a>
+        <a href="books.php?page=<?= $previous ?>">Previous</a>
     <?php endif; ?>
 
     <?php if ($nbPage < $totalPages) : ?>
-        <a href="songs.php?page=<?= $next ?>">Next</a>
+        <a href="books.php?page=<?= $next ?>">Next</a>
     <?php endif; ?>
 </body>
 

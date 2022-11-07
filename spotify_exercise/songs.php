@@ -1,9 +1,19 @@
 <?php
 
+
+$nbPage = 1;
+
+if (isset($_GET['page']))
+    $nbPage = $_GET['page'];
+
+$howManyPerPage = 2;
+$start = $howManyPerPage * ($nbPage - 1);
+
 $conn = mysqli_connect('localhost', 'root', '', 'spotify');
 $query = "SELECT title, type
 FROM songs s
-INNER JOIN categories c ON s.categ_id = c.id";
+INNER JOIN categories c ON s.categ_id = c.id
+LIMIT $start, $howManyPerPage";
 $result = mysqli_query($conn, $query);
 $songs = mysqli_fetch_all($result, MYSQLI_ASSOC);
 mysqli_close($conn);

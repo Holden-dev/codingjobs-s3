@@ -16,7 +16,7 @@ echo "Im on the page number : $nbPage";
     You want to use LIMIT.
 
     If you want to get the first three songs
-    SELECT * FROM songs LIMIT 3, 0
+    SELECT * FROM songs LIMIT 0, 3
 
     If you want to get the next three songs
     SELECT * FROM songs LIMIT 3, 3
@@ -25,7 +25,7 @@ echo "Im on the page number : $nbPage";
     Helper : 
 
     Step 1:
-        Decide how many elements to display on the page.
+        Decide how many elements to display on the page. 2
 
     Step 2:
         Check if you have a URI param.
@@ -33,7 +33,7 @@ echo "Im on the page number : $nbPage";
     
      Step 3:
         Thanks to the page number, you can change the query.
-        SELECT * FROM songs LIMIT 3, X
+        SELECT * FROM songs LIMIT X, 3
 
         You just have to figure out the X value.
 */

@@ -43,6 +43,7 @@
 
             <input type="submit" name="sortBtn" value="Sort">
         </form>
+
     </div>
 
     <div id="movies-list">
@@ -51,30 +52,30 @@
     <script>
         // Include navbar
         fetch('nav.php', {
-                method: 'get',
-            }).then(res => res.text())
-            .then(function(result) {
+            method: 'get',
+        }).then(res => res.text())
+            .then(function (result) {
                 document.getElementById('main-navbar').innerHTML = result;
             });
 
         // Called when page is loaded
         fetch('get-movies.php', {
-                method: 'get'
-            }).then(res => res.text())
-            .then(function(result) {
+            method: 'get'
+        }).then(res => res.text())
+            .then(function (result) {
                 document.getElementById('movies-list').innerHTML = result;
             });
 
         // Called when user search
-        document.querySelector("input[name='searchBox']").addEventListener('input', function(event) {
+        document.querySelector("input[name='searchBox']").addEventListener('input', function (event) {
             let data = new FormData();
             data.append("search", this.value);
 
             fetch('get-movies.php', {
-                    method: 'post',
-                    body: data
-                }).then(res => res.text())
-                .then(function(result) {
+                method: 'post',
+                body: data
+            }).then(res => res.text())
+                .then(function (result) {
                     document.getElementById('movies-list').innerHTML = result;
                 });
         });

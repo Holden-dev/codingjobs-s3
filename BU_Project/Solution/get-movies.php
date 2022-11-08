@@ -29,5 +29,7 @@ $movies = mysqli_fetch_all($result, MYSQLI_ASSOC);
         <?php if (isset($_SESSION['email'])) : ?>
             <a href="./insert-movie-watchlist.php?id=<?= $movie['id']; ?>">Add to my watchlist</a>
         <?php endif; ?>
+
+        <a href="./edit-movie.php?id=<?= $movie['id'];  ?>">Edit movie</a>
     </div>
 <?php endforeach; ?>

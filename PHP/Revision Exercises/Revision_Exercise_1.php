@@ -1,5 +1,25 @@
 <?php
 
+"You have : 5 €"
+
+"1 EUR = 138.20 JPY"
+"5 EUR = 5 x 138.20 JPY"
+
+"5 JPY = 5 / 138.20 EUR"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*
 	1. Display the type of each variable at the end of the script (using only one function)
 	2. Display the type AND the value of each variable (using only one function)

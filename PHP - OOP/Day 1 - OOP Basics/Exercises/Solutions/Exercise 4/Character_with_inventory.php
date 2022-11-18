@@ -8,7 +8,7 @@ class Character
     public $defPoints;
     public $warCry;
     private $type;
-    public $equipment;
+    public $inventory; // inventory is an Array of Objects
 
     public function __construct($name, $type)
     {
@@ -20,6 +20,8 @@ class Character
         $this->warCry = "Attaaaaaack!";
         if ($this->type == 'Orc')
             $this->warCry = "wwouogrouroulou mlll !!";
+
+        $this->inventory = array();
     }
 
     public function set_type($type)
@@ -33,17 +35,29 @@ class Character
 
     public function add_equipment($equip)
     {
-        $this->equipment = $equip;
+        $this->inventory[] = $equip;
     }
 
     public function remove_equipment($equip)
     {
-        $this->equipment = null;
+        foreach ($this->inventory as $key => $value) {
+            if ($equip === $value)
+                $this->inventory[$key] = null;
+        }
+    }
+
+    public function remove_all_equipment()
+    {
+        $this->inventory = null;
     }
 
     public function display_equipment()
     {
         echo "Inventory list : <br>";
-        echo $this->equipment;
+        // Loop throught the inventory list to display each equipement
+        foreach ($this->inventory as $key => $equip) {
+            echo '<hr>';
+            echo $equip;
+        }
     }
 }

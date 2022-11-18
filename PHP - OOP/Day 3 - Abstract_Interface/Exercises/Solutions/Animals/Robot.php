@@ -1,6 +1,6 @@
 <?php
 
-class Robot
+class Robot implements IWorker
 {
     public $id;
     public $color;

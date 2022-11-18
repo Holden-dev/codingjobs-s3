@@ -2,7 +2,7 @@
 
 require_once "LivingBeing.php";
 
-class Human extends LivingBeing
+class Human extends LivingBeing implements IWorker
 {
     public function communicate()
     {

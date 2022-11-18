@@ -1,17 +1,14 @@
 <?php
 
-class Animal
+require_once "LivingBeing.php";
+
+class Animal extends LivingBeing
 {
-    public $name;
-    public $color;
-    public $gender;
     public $nbLegs;
 
     public function __construct($n, $c, $g, $l)
     {
-        $this->name = $n;
-        $this->color = $c;
-        $this->gender = $g;
+        parent::__construct($n, $c, $g);
         $this->nbLegs = $l;
     }
 }

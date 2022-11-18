@@ -26,6 +26,8 @@ $elf->remove_equipment($sword);
 
 $elf->display_equipment();
 
+$elf->attack($orc);
+
 
 echo '<pre>';
 var_dump($elf);

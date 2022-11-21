@@ -36,4 +36,16 @@ Step 3 :
 	- Edit 'view-flowers.php' page.
 	Display a link, for each flower, to see the detail page.
 
- ?>
+Step 4 : 
+	
+	4.1 : Create a class Flower.
+	It will have three public properties : id, name and price.
+
+	4.2 : Edit FlowerManager 'findAll' method.
+	This method should now use FETCH_CLASS !! 
+
+	What you get when you fetch is object now!
+	You have to also edit 'view-flowers.php' to user Object Syntax (not array).
+
+
+*/

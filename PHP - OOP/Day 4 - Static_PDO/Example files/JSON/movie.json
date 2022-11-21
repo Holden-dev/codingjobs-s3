@@ -1,0 +1,12 @@
+[
+    {
+        "id": 1,
+        "title": "Fight Club",
+        "release_date": "2000-01-01"
+    },
+    {
+        "id": 2,
+        "title": "Ready player one",
+        "release_date": "2018-01-01"
+    }
+]

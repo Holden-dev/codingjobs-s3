@@ -1,13 +1,19 @@
 <?php
 
+require_once 'Flower.php';
+
 class FlowerManager
 {
-    
+    private function get_pdo()
+    {
+        return new PDO('mysql:host=localhost;dbname=flower_db', 'root', '');
+    }
+
     public function findAll()
     {
-        $pdo = new PDO('mysql:host=localhost;dbname=flower_db', 'root', '');
+        $pdo = $this->get_pdo();
         $results = $pdo->query('SELECT * FROM flowers');
-        $flowers = $results->fetchAll(PDO::FETCH_ASSOC);
+        $flowers = $results->fetchAll(PDO::FETCH_CLASS, 'Flower');
         $pdo = null;
 
         return $flowers;
@@ -15,11 +21,13 @@ class FlowerManager
 
     public function find($id)
     {
-        $pdo = new PDO('mysql:host=localhost;dbname=flower_db', 'root', '');
+        $pdo = $this->get_pdo();
         $prep = $pdo->prepare('SELECT * FROM flowers WHERE id = :id');
         $prep->bindValue(':id', $id);
         $prep->execute();
-        $flower = $prep->fetch(PDO::FETCH_ASSOC);
+
+        $prep->setFetchMode(PDO::FETCH_CLASS, 'Flower');
+        $flower = $prep->fetch();
         $pdo = null;
 
         return $flower;

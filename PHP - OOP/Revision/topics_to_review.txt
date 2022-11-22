@@ -1,0 +1,7 @@
+Topics to review - Final evaluation : 
+	- Forms and Ajax
+	- Query (inner join, where)
+	- Database (P.D.O)
+	- OOP (Classes, properties, methods, inheritance)
+	NO interfaces/abstract or static.
+	

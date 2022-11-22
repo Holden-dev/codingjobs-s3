@@ -32,4 +32,36 @@ class FlowerAPIManager
 
         return json_encode($flower, JSON_PRETTY_PRINT);
     }
+
+    public function findByName($name)
+    {
+        $pdo = $this->get_pdo();
+        $prep = $pdo->prepare('SELECT * FROM flowers WHERE name LIKE :name');
+        $prep->bindValue(':name', "%$name%");
+        $prep->execute();
+
+        $prep->setFetchMode(PDO::FETCH_CLASS, 'Flower');
+        $flower = $prep->fetchAll();
+        $pdo = null;
+
+        return json_encode($flower, JSON_PRETTY_PRINT);
+    }
+
+
+    public function sortBy($column, $direction)
+    {
+        $pdo = $this->get_pdo();
+        $prep = $pdo->prepare("SELECT * 
+        FROM flowers
+        ORDER BY $column $direction");
+        // $prep->bindValue(':column', $column, PDO::PARAM_INT);
+        // $prep->bindValue(':direction', $direction);
+        $prep->execute();
+
+        $prep->setFetchMode(PDO::FETCH_CLASS, 'Flower');
+        $flower = $prep->fetchAll();
+        $pdo = null;
+
+        return json_encode($flower, JSON_PRETTY_PRINT);
+    }
 }

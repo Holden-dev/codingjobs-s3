@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Insert new flower</h2>
+    <div id="result"></div>
+
+    <form method="post">
+        <label for="name">Name : </label>
+        <input type="text" name="name" id="name" placeholder="Name"><br>
+
+        <label for="price">Price : </label>
+        <input type="text" name="price" id="price" placeholder="Price"><br>
+
+        <input type="submit" name="submitBtn" value="Insert">
+    </form>
+
+    <script>
+        document.querySelector("form").addEventListener('submit', function (event) {
+            // Prevent the page to 'refresh'
+            event.preventDefault();
+            // let form = document.getElementById('form');
+            let form = this;
+
+            fetch('new-flower.php', {
+                method: 'post',
+                body: new FormData(form)
+            }).then(res => res.json())
+                .then(function (result) {
+                    // Once AJAX call is done
+                    console.log(result);
+
+                    if (result.success)
+                        document.getElementById('result').innerHTML = "<span style='color:green'>" + result.success + "</span>";
+                    else {
+                        let errors = "<span style='color:red'>" + result.name + "</span><br>";
+                        errors += "<span style='color:red'>" + result.price + "</span><br>";
+
+                        document.getElementById('result').innerHTML = errors;
+                    }
+                });
+        });
+    </script>
+</body>
+
+</html>

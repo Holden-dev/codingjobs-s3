@@ -7,7 +7,7 @@
 Continue the MVC Example about Songs.
 
 Step 1 : 
-    - Create an ArtistModel and add a method to retrieve all artists$
+    - Create an ArtistModel and add a method to retrieve all artists
     - Method should RETURN the artists
 
 Step 2 : 
@@ -25,7 +25,6 @@ Step 4 :
 
 Step 5 : 
     - Create a view NewArtistView, that displays a form to insert a new Song.
-
 
 Step 6 : 
     - Edit ArtistController and add a method to handle displaying the form

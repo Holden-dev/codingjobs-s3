@@ -24,7 +24,7 @@ Step 4 :
     - Method should return true or false. 
 
 Step 5 : 
-    - Create a view NewArtistView, that displays a form to insert a new Song.
+    - Create a view NewArtistView, that displays a form to insert a new Artist.
 
 Step 6 : 
     - Edit ArtistController and add a method to handle displaying the form
@@ -34,7 +34,7 @@ Step 7 :
     Edit index.php file to handle request to show the form for adding new artist
 
 Step 8 : 
-    - Edit ArtistController and add a method to handle inserting a Song
+    - Edit ArtistController and add a method to handle inserting a Artist
     This method should use $_POST array and ask for ArtistModel to insert
 
     You also have to edit index.php

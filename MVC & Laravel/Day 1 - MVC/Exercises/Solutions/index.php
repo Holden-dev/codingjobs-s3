@@ -32,7 +32,7 @@
             <a href="index.php?page=artists">Artists</a>
         </li>
         <li>
-            <a href="">New Artist</a>
+            <a href="index.php?page=new-artist">New Artist</a>
         </li>
     </ul>
 </nav>
@@ -55,6 +55,14 @@ if (isset($_GET['page'])) {
         $artistCtrler = new ArtistController();
 
         $artistCtrler->display_artists();
+    } elseif ($_GET['page'] == 'new-artist') {
+        require_once 'Controller/ArtistController.php';
+        $artistCtrler = new ArtistController();
+
+        if (isset($_POST['insertBtn']))
+            $artistCtrler->insert_artist($_POST['name'], $_POST['gender'], $_POST['date_of_birth'], $_POST['bio']);
+        else
+            $artistCtrler->new_artist();
     } else {
         $msg = "404 - Page not found<br>";
         require_once './View/ErrorView.php';

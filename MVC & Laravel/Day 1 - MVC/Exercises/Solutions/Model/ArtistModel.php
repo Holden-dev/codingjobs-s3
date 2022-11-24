@@ -16,4 +16,14 @@ class ArtistModel
 
         return $artists;
     }
+
+    public function insert_artist($name, $gender, $birth_date, $bio)
+    {
+        $pdo = $this->get_pdo();
+        $prep = $pdo->prepare("INSERT INTO artists(name, gender, date_of_birth, bio)
+        VALUES(:name, :gender, :date_of_birth, :bio)");
+        $result = $prep->execute([':name' => $name, ':gender' => $gender, ':date_of_birth' => $birth_date, ':bio' => $bio]);
+
+        return $result;
+    }
 }

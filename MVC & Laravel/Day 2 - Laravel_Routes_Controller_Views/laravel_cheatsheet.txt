@@ -1,0 +1,2 @@
+- run the server : php artisan serve
+- Controller : php artisan make:controller SongController

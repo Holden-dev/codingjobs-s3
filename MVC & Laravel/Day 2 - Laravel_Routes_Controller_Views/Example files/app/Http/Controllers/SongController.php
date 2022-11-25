@@ -3,12 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class SongController extends Controller
 {
     public function index()
     {
-        return 'Lets display all the songsssssssssssss!';
+        // $songs = DB::select('SELECT * FROM songs');
+        $songs = DB::table('songs')->get();
+
+        // dd($songs);
+        return view('songs', ['songs' => $songs]);
     }
 
     public function show($id)

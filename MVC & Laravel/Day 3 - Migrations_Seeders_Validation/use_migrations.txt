@@ -1,0 +1,37 @@
+** USE MIGRATION **
+
+- Step 1 : 
+Create the migration with the command line 
+php artisan make:migration create_movies_table
+
+- Step 2 : 
+Edit the migration file to match your table schema.
+
+- Step 3 :
+Run the migration
+php artisan migrate
+
+- Optional :
+Rollback -> php artisan migrate:rollback
+Rollback all migration + migrate -> php artisan migrate:refresh
+Delete all tables + migrate -> php artisan migrate:fresh
+
+** USE SEEDER **
+
+- Step 1 :
+Create the seeder through command-line
+php artisan make:seeder DirectorSeeder
+
+- Step 2 :
+Edit the seeder to insert data.
+
+- Step 3 : 
+Edit DatabaseSeeder to run the desired seeders.
+
+- Step 4 :
+php artisan db:seed
+
+-- Optional
+You can run the migration and the seeder at the same time :
+    php artisan migrate --seed
+    php artisan migrate:refresh --seed

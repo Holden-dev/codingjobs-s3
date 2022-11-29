@@ -1,2 +1,4 @@
 https://laravel.com/docs/9.x/migrations
 https://laravel.com/docs/9.x/seeding
+
+https://laravel.com/docs/9.x/validation

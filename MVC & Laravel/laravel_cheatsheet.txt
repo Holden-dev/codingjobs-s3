@@ -12,7 +12,7 @@ Using resource flag : php artisan make:controller SongController --resource
     * Refresh migration : php artisan migrate:refresh
 
 - Seeders :
-    * Create seeders : php artisan make:seeders MovieSeeder
+    * Create seeders : php artisan make:seeder MovieSeeder
     * Run seeder : php artisan db:seed
 
 - Migrate + Seed : 

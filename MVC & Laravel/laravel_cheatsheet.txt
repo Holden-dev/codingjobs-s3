@@ -1,2 +1,3 @@
 - run the server : php artisan serve
 - Controller : php artisan make:controller SongController
+Using resource flag : php artisan make:controller SongController --resource

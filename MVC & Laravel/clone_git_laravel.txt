@@ -1,0 +1,2 @@
+When you clone a Laravel repository from GitHub
+You have to run the command-line : composer install

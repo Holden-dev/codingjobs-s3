@@ -21,3 +21,6 @@ Using resource flag : php artisan make:controller SongController --resource
 
 - Create a custom request class :
     * php artisan make:request StoreFlowerRequest 
+
+- Create a model :
+    * php artisan make:model Flower

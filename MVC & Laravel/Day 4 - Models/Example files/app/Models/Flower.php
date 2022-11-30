@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 
 class Flower extends Model
 {
@@ -21,4 +22,23 @@ class Flower extends Model
             protected $primaryKey = 'my_id';
             
             */
+
+    // Accessors & Mutators (setters & getters)
+    // protected function name(): Attribute
+    // {
+    //     return Attribute::make(
+    //         get: fn ($value) => strtoupper($value),
+    //         set: fn ($value) => strtolower($value),
+    //     );
+    // }
+
+    public function getNameAttribute($value)
+    {
+        return strtoupper($value);
+    }
+
+    public function setNameAttribute($value)
+    {
+        $this->attributes['name'] = strtolower($value);
+    }
 }

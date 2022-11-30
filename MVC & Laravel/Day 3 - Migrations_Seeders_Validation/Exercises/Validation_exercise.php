@@ -23,7 +23,7 @@ Step 1 :
 Step 2 - Bonus :
 
     You should customize the error message.
-    If the title is empty, you should display 'Title is mandatory !'
+    If the name is empty, you should display 'Name is mandatory !'
     If the price is not a numeric value OR is not between 2 and 100 it should display 'Price must be numeric between 2 and 100e'
 
     For this step, you have to read this section : https://laravel.com/docs/9.x/validation#customizing-the-error-messages

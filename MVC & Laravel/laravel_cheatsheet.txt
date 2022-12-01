@@ -24,3 +24,4 @@ Using resource flag : php artisan make:controller SongController --resource
 
 - Create a model :
     * php artisan make:model Flower
+    * php artisan make:model CustomUser

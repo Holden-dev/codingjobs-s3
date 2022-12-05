@@ -1,0 +1,2 @@
+https://laravel.com/docs/9.x/authentication
+https://laravel.com/docs/9.x/starter-kits#laravel-breeze-installation

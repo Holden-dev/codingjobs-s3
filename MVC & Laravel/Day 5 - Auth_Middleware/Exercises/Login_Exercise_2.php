@@ -5,6 +5,8 @@
 Continue Login exercise.
 We want to allow only administrator to access 'create flower' / 'update flower' and 'delete flower'
 
+https://laravel.com/docs/9.x/middleware
+
 Step 1 :
     Change the User migration.
     Add a column 'admin' (boolean). By default, it's always false.

@@ -1,0 +1,17 @@
+1. Create new project
+    composer create-project laravel/laravel auth_app
+
+2. Change .env file to configure database
+
+3. Run migration
+    php artisan migrate
+
+4. Require breeze package
+    composer require laravel/breeze --dev
+
+5. Install breeze package
+    php artisan breeze:install
+
+6. Compile the assets with those 2 command lines : 
+    npm install
+    npm run dev
